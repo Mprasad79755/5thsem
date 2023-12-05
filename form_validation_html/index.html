@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            color: #3498db;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input , button, select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+      .button{
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            /* text-align: justify; */
+            padding: 20px;
+            margin: 0;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+h3{
+    color: #3498db;
+    font-weight: bold;
+    margin-bottom: 10px;
+text-align: center;
+border-bottom:  1px solid #333 ;
+padding-bottom:15px ;
+
+}
+        p {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p, span {
+            font-size: 16px;
+        }
+
+        span {
+            color: #666;
+        }
+        #pname, #pemail, #pphone, #psem, #pbranch, #pregister_num {
+            color: #3498db;
+        }
+         button{
+            width: calc(50% - 70px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+         }
+
+        .error {
+            color: #e74c3c;
+            margin-top: 5px;
+        }
+    </style>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var address = document.getElementById("address").value;
+
+            var isValid = true;
+
+            // Simple validation examples, you may need to enhance these based on your specific requirements.
+
+            if (name.trim() === "") {
+                isValid = false;
+                document.getElementById("nameError").innerHTML = "Name is required<br><br>";
+            } else {
+                document.getElementById("nameError").innerHTML = "";
+            }
+
+            if (email.trim() === "") {
+                isValid = false;
+                document.getElementById("emailError").innerHTML = "Email is required<br><br>";
+            } else {
+                document.getElementById("emailError").innerHTML = "";
+            }
+
+            var phoneRegex = /^\d{10}$/; // Define the regular expression outside the conditional blocks
+
+            if (phone.trim() === "") {
+                isValid = false;
+                document.getElementById("phoneError").innerHTML = "Phone is required<br><br>";
+            } else if (!phoneRegex.test(phone)) {
+                isValid = false;
+                document.getElementById("phoneError").innerHTML = "Please enter a valid 10-digit phone number<br><br>";
+            } else {
+                document.getElementById("phoneError").innerHTML = "";
+            }
+
+
+            if (password.trim() === "") {
+    isValid = false;
+    document.getElementById("passwordError").innerHTML = "Password is required<br><br>";
+} else {
+    document.getElementById("passwordError").innerHTML = "";
+
+    // Check for strong password criteria
+    var strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (!strongPasswordRegex.test(password)) {
+        isValid = false;
+        document.getElementById("passwordError").innerHTML = "Password must be strong<br><br>";
+    }
+}
+
+            if (confirmPassword.trim() === "" || confirmPassword !== password) {
+                isValid = false;
+                document.getElementById("confirmPasswordError").innerHTML = "Passwords do not match<br><br>";
+            } else {
+                document.getElementById("confirmPasswordError").innerHTML = "";
+            }
+
+            if (address.trim() === "") {
+                isValid = false;
+                document.getElementById("addressError").innerHTML = "Address is required<br><br>";
+            } else {
+                document.getElementById("addressError").innerHTML = "";
+            }
+
+            if(isValid){
+                alert("Registration success...");
+                document.body.innerHTML = "<h1>Thank you for registering...</h1>";
+            }
+            return isValid;
+        }
+    </script>
+</head>
+
+<body>
+
+    <form onsubmit="return validateForm()">
+        <h1>Registration Form</h1>
+        <label for="name">Name</label>
+        <input type="text" id="name" >
+        <span id="nameError" class="error"></span>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" >
+        <span id="emailError" class="error"></span>
+
+        <label for="phone">Phone</label>
+        <input type="number" id="phone" >
+        <span id="phoneError" class="error"></span>
+        <label for="address">Address</label>
+        <input id="address" ></input>
+        <span id="addressError" class="error"></span>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" >
+        <span id="passwordError" class="error"></span>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" >
+        <span id="confirmPasswordError" class="error"></span>
+
+
+
+        <input type="submit" value="Register" class="button">
+    </form>
+</body>
+</html>
