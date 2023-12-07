@@ -6,6 +6,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\5th sem diploma\lab programms\springSecurity"/>
 			<item value="D:\5th sem diploma\lab programms\mongocrud"/>
 			<item value="C:\Users\Prasad\Downloads\mysql-crud-operation\mysql-crud-operation"/>
 			<item value="C:\Users\Prasad\Downloads\crudoperation"/>
